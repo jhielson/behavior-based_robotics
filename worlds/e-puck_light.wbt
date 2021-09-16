@@ -1,0 +1,73 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "Copyright (C) 2006 Laboratory of Intelligent Systems (LIS), EPFL"
+    "Thanks to jean-christophe.zufferey@epfl.ch"
+  ]
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.43053741890395575 -0.7733514822860741 -0.4653654647365358 4.383677665631439
+  position 1.210408723049033 1.5867365889560792 -0.15396454594037973
+}
+TexturedBackground {
+  texture "empty_office"
+}
+RectangleArena {
+  floorSize 0.9 0.9
+  floorTileSize 0.9 0.9
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/floor - Copy.png"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+  wallHeight 0.05
+}
+DEF OBSTACLE1 Solid {
+  translation 0.325194 0.025 -0.306293
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.1 0.3
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX1 Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "red box"
+  boundingObject USE BOX1
+}
+DEF EPUCK E-puck {
+  hidden position_0_0 597.1954140310658
+  hidden position_0_1 682.3858003972007
+  hidden linearVelocity_0 0.014818532703696251 -4.502077030282676e-09 -0.001963521539017033
+  hidden angularVelocity_0 0.00046444586333554874 -0.17546218993418683 0.0034081071582291143
+  hidden rotation_1 1 0 0 5.990375458174549
+  hidden linearVelocity_1 0.019324499819906103 6.3171292207427725e-09 -0.0025599185734981006
+  hidden angularVelocity_1 -0.1308768468419117 -0.17590869421607372 -0.987932862212809
+  hidden rotation_2 -1 0 0 3.801787221805343
+  hidden linearVelocity_2 0.010278666138797424 2.7042068552396146e-11 -0.0013614273424605494
+  hidden angularVelocity_2 -0.06518027875980494 -0.1755780928954899 -0.49226590904710604
+  translation -0.12136899287030205 -6.408968495137321e-05 -0.2398877418666091
+  rotation -0.0003549858251375485 -0.9999998907469384 -0.00030412361818860117 1.4419527356358892
+  controller "e-puck_light"
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+SpotLight {
+  attenuation 0 0 0.2
+  beamWidth 0
+  cutOffAngle 0.5
+  direction -1 0 -1
+  intensity 9
+  location 0.4 0 0.4
+}
