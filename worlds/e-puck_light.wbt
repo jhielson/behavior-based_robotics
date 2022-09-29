@@ -1,0 +1,74 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+
+WorldInfo {
+  info [
+    "Copyright (C) 2006 Laboratory of Intelligent Systems (LIS), EPFL"
+    "Thanks to jean-christophe.zufferey@epfl.ch"
+  ]
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.7071057814660382 0.7071077809056435 5.551115123136879e-17 3.1415966524690035
+  position -0.010749692270380468 2.0996057270855792 -0.05887920483102586
+}
+TexturedBackground {
+  texture "empty_office"
+}
+RectangleArena {
+  rotation 1 0 0 -1.5707996938995747
+  floorSize 0.9 0.9
+  floorTileSize 0.9 0.9
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/floor - Copy.png"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+  wallHeight 0.05
+}
+DEF OBSTACLE1 Solid {
+  translation 0.325194 0.025 -0.306293
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.1 0.3
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX1 Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "red box"
+  boundingObject USE BOX1
+}
+SpotLight {
+  attenuation 0 0 0.2
+  beamWidth 0
+  cutOffAngle 0.5
+  direction -1 0 -1
+  intensity 9
+  location 0.4 0 0.4
+}
+E-puck {
+  hidden position_0_0 178.71552905515338
+  hidden position_0_1 187.47008091461046
+  hidden rotation_1 0 1 0 2.786340454124961
+  hidden rotation_2 0 -1 0 1.0254783007771309
+  translation -0.0117118 -6.25727e-05 -0.0590507
+  rotation -0.3691528585389241 -0.6571130775781358 -0.6572127283523442 2.4340065932536192
+  controller "e-puck_light"
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}

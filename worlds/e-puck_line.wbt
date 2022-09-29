@@ -1,0 +1,79 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+
+WorldInfo {
+  info [
+    "Copyright (C) 2006 Laboratory of Intelligent Systems (LIS), EPFL"
+    "Thanks to jean-christophe.zufferey@epfl.ch"
+  ]
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.6753955063113408 0.6983302781715747 0.23701420346312313 2.8299887769494894
+  position 0.029833936601768203 1.4309284946885406 0.9514654829306364
+}
+TexturedBackground {
+  texture "empty_office"
+}
+RectangleArena {
+  rotation 1 0 0 -1.5707996938995747
+  floorSize 0.9 0.9
+  floorTileSize 0.9 0.9
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "textures/line.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+  }
+  wallHeight 0.05
+}
+DEF OBSTACLE1 Solid {
+  translation 0.3007732975512895 0.024999999999965807 0.25387640614632884
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.1 0.3
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BOX1 Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  name "red box"
+  boundingObject USE BOX1
+}
+DirectionalLight {
+  direction -0.3 -1 0.3
+  intensity 3
+  castShadows TRUE
+}
+E-puck {
+  hidden position_0_0 74.41883503718933
+  hidden position_0_1 158.73507519509295
+  hidden linearVelocity_0 0.019838791823267626 3.9706504583135864e-06 0.0036319646699386403
+  hidden angularVelocity_0 0.002049125783103657 -4.227138741486099e-06 -0.011165687338763622
+  hidden translation_1 0 0.025999999999999933 0.02
+  hidden rotation_1 0 -1 0 0.9793886489657129
+  hidden linearVelocity_1 0.019894335993522267 3.4600550359975183e-06 0.0036535070987592515
+  hidden angularVelocity_1 0.18265270041414486 0.00012669112561272352 -0.9947222870328553
+  hidden translation_2 0 -0.026000000000000058 0.02
+  hidden rotation_2 0 -0.9999999999999999 0 4.627742791576302
+  hidden linearVelocity_2 0.019898339049881635 4.162750168478928e-06 0.0036315841873926858
+  hidden angularVelocity_2 0.18160481730891584 0.0004234413260318938 -0.9949159051955726
+  translation -0.24398467361219386 -6.509012976384232e-05 -0.35823026043861134
+  rotation 0.9917115451651906 0.09231011766473063 0.08937031589288452 -1.5793865929328952
+  controller "e-puck_line"
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
